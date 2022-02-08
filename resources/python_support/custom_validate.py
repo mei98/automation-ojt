@@ -4,8 +4,7 @@ class   Custom_Validate:
         
         for item in var_list:
             if (var_department == item):
-                return True
-    
+                return True    
     
     def checkInfo(self, var_name, var_account,**var_dict):  
               

@@ -1,6 +1,5 @@
 from skimage.metrics import structural_similarity
 import cv2
-
  
 def compare_images(src1, src2):
 

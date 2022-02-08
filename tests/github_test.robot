@@ -13,9 +13,9 @@ Test Teardown    Custom Test Teardown
 *** Test Cases ***
 
 Test Change Github Avatar
+
      [TAGS]    github
         
-     Login With Username And Password    ${USERNAME}    ${PASSWORD}
      Remove Avatar
      Upload Avatar    ${IMAGE_TO_UPLOAD}
 

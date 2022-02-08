@@ -1,6 +1,7 @@
 
 *** Settings ***
 Library    Process
+Library    ../python_support/check_images.py 
 
 *** Variables ***
 
@@ -28,14 +29,15 @@ ${AVATAR_IMG}    xpath://img[contains(@class, "avatar rounded-2 avatar-user")]
 *** Keywords ***
 
 Custom Test Setup
-    Open Browser    ${LINK_LOGIN}    chrome
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --user-data-dir\=C:/Users/meimei/AppData/Local/Google/Chrome/User Data/Default
+    Create WebDriver    Chrome    chrome_options=${options}
+    Go To    ${LINK_LOGIN}
     Set Browser Implicit Wait    10
-    
 
 Custom Test Teardown
     Run Keywords        
     ...    Run Keyword If Timeout Occurred    Log    Timeout occurs
-    # ...    AND    Run Keyword If Test Failed    Capture Page Screenshot
     ...    AND    Close Browser 
 
 Download Image By URL
@@ -58,4 +60,4 @@ Remove Avatar
     Click Button    ${REMOVE_BTN}
     Handle Alert    ACCEPT
     Click Element    ${PROFILE_BTN}
-    Element Should Not Be Visible    ${REMOVE_BTN}    Avatar is not removed yet
+    Element Should Not Be Visible    ${REMOVE_BTN}    Avatar failed to be removed

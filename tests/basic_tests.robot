@@ -5,15 +5,15 @@ Library    RequestsLibrary
 
 Resource    ../resources/robot_keywords/w3school_kw.robot    
 
-Variables    ../resources/python_support/my_define.py
+Variables    ../resources/python_support/custom_validate.py
 
 Suite Setup    Open Browser    &{LINK_LIST}[upload_file]    chrome 
    
 Test Setup    Run Keyword    Set Browser Implicit Wait    5
        
 Test Teardown    Run Keywords        
-...              Run Keyword If Timeout Occurred    Log    Timeout occurs
-...       AND    Run Keyword If Test Failed    Capture Page Screenshot
+...    Run Keyword If Timeout Occurred    Log    Timeout occurs
+...    AND    Run Keyword If Test Failed    Capture Page Screenshot
  
 Suite Teardown    Close Browser
 
@@ -24,34 +24,34 @@ Force Tags    BASIC
     
 Test Upload File
     
-    [Tags]    upload_file
+    [TAGS]    upload_file
     
-    Input Text                   ${id_my_file}    &{FILE_ADDRESS}[fileaddress]
+    Input Text    ${id_my_file}    &{FILE_ADDRESS}[fileaddress]
     ${filename}=    Get Element Attribute    ${id_my_file}    value      
-    Should Contain               ${filename}    ${EXPECTED_NAME}  
+    Should Contain    ${filename}    ${EXPECTED_NAME}  
 
 
 Test Iframe
     
-    [Tags]    iframe
+    [TAGS]    iframe
     ${text}=    Set Variable    An HTML iframe is used to display a web page within a web page.
     
-    Go To                       &{LINK_LIST}[iframe]
+    Go To    &{LINK_LIST}[iframe]
 
-    Select Frame                ${XPATH_MY_FRAME}
-    Current Frame Should Not Contain        ${text}   
+    Select Frame    ${XPATH_MY_FRAME}
+    Current Frame Should Not Contain    ${text}   
     
     Unselect Frame
-    Current Frame Should Contain            ${text}   
+    Current Frame Should Contain    ${text}   
 
     
 Test New Tab
     
-    [Tags]    new_tab
+    [TAGS]    new_tab
     
-    Go To                      &{LINK_LIST}[newtab_popout]    
+    Go To    &{LINK_LIST}[newtab_popout]    
     Scroll Element Into View    ${MUST_SCROLL} 
-    Click Button                ${XPATH_NEW_TAB}
+    Click Button    ${XPATH_NEW_TAB}
     
     @{tabs}=    Get Window Handles
     ${result}=    Check Title    @{tabs}
@@ -60,13 +60,13 @@ Test New Tab
 
 Test Popout Window
     
-    [Tags]    popout_window
+    [TAGS]    popout_window
     
     ${text}=    Set Variable    A New Popup Window
     
-    Go To                      &{LINK_LIST}[newtab_popout]
+    Go To    &{LINK_LIST}[newtab_popout]
     Scroll Element Into View    ${MUST_SCROLL} 
-    Click Button                ${XPATH_POPOUT} 
+    Click Button    ${XPATH_POPOUT} 
        
     @{wins}=    Get Window Handles
     ${result}=    Check Title    @{wins}
@@ -74,10 +74,10 @@ Test Popout Window
 
 Test Any API
     
-    [Tags]    any_api
+    [TAGS]    any_api
     
-    Go To                      &{LINK_LIST}[any_api]
-    @{links}=       Get WebElements    ${CLASS_LINK_API} 
+    Go To    &{LINK_LIST}[any_api]
+    @{links}=    Get WebElements    ${CLASS_LINK_API} 
          
     :FOR    ${item}    IN    @{links}
     \    Click Element    ${item}
@@ -88,11 +88,10 @@ Test Any API
 
 Test01
     
-    [Tags]    test01
+    [TAGS]    test01
     
     ${var_01}=    Call Method    ${validate}    checkDepartment    QA    @{VAR_LIST}
     Should Be True    ${var_01}==True    
     
     ${var_02}=    Call Method    ${validate}    checkInfo    Ngoc    NgocTTK1    &{VAR_DICT}
-    Should Be True    ${var_02}==True       
-
+    Should Be True    ${var_02}==True
