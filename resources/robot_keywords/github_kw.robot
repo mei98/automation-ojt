@@ -1,30 +1,30 @@
-
 *** Settings ***
+
 Library    Process
 Library    ../python_support/check_images.py 
 
 *** Variables ***
 
-${USERNAME}    meimei.havi@gmail.com
-${PASSWORD}    newpassword222:))
+${USERNAME}            meimei.havi@gmail.com
+${PASSWORD}            newpassword222:))
 
-${SUCCESS_MSG}    id=js-flash-container
-${FAIL_MSG}    xpath://div[contains(@class, "upload-state color-fg-danger")]
+${SUCCESS_MSG}         id=js-flash-container
+${FAIL_MSG}            xpath://div[contains(@class, "upload-state color-fg-danger")]
 
-${IMAGE_TO_UPLOAD}    C:/Users/meimei/Desktop/background/Eren.jpg
-${IMAGE_DIR}    C:/Users/meimei/eclipse-workspace/Automation_Robot/
-${ACTUAL_IMAGE}    avatar.jpg
-${EXPECTED_IMAGE}    C:/Users/meimei/eclipse-workspace/Automation_Robot/logo.jpg
+${IMAGE_TO_UPLOAD}     C:/Users/meimei/eclipse-workspace/Automation_Robot/images/origin.jpg
+${IMAGE_DIR}           C:/Users/meimei/eclipse-workspace/Automation_Robot/
+${ACTUAL_IMAGE}        avatar.jpg
+${EXPECTED_IMAGE}      C:/Users/meimei/eclipse-workspace/Automation_Robot/images/expected.jpg
 
-${LINK_LOGIN}    https://github.com/settings/profile
-${LOGIN_NAME}    id=login_field
-${LOGIN_PW}    id=password
-${LOGIN_BTN}     xpath://input[contains(@value, "Sign in")]
-${PROFILE_BTN}    xpath://details[contains(@class, "dropdown details-reset details-overlay")]
+${LINK_LOGIN}          https://github.com/settings/profile
+${LOGIN_NAME}          id=login_field
+${LOGIN_PW}            id=password
+${LOGIN_BTN}           xpath://input[contains(@value, "Sign in")]
+${PROFILE_BTN}         xpath://details[contains(@class, "dropdown details-reset details-overlay")]
 ${AVATAR_UPLOAD_ID}    id=avatar_upload
-${SUBMIT_BTN}    xpath://button[contains(text(), "Set new profile picture")]
-${REMOVE_BTN}    xpath://button[contains(text(), "Remove photo")]
-${AVATAR_IMG}    xpath://img[contains(@class, "avatar rounded-2 avatar-user")]
+${SUBMIT_BTN}          xpath://button[contains(text(), "Set new profile picture")]
+${REMOVE_BTN}          xpath://button[contains(text(), "Remove photo")]
+${AVATAR_IMG}          xpath://img[contains(@class, "avatar rounded-2 avatar-user")]
 
 *** Keywords ***
 
