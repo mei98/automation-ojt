@@ -11,10 +11,10 @@ ${PASSWORD}            newpassword222:))
 ${SUCCESS_MSG}         id=js-flash-container
 ${FAIL_MSG}            xpath://div[contains(@class, "upload-state color-fg-danger")]
 
-${IMAGE_TO_UPLOAD}     C:/Users/meimei/eclipse-workspace/Automation_Robot/images/origin.jpg
+${IMAGE_TO_UPLOAD}     ${CURDIR}\\images\\origin.jpg
 ${IMAGE_DIR}           C:/Users/meimei/eclipse-workspace/Automation_Robot/
 ${ACTUAL_IMAGE}        avatar.jpg
-${EXPECTED_IMAGE}      C:/Users/meimei/eclipse-workspace/Automation_Robot/images/expected.jpg
+${EXPECTED_IMAGE}      ${CURDIR}\\images\\expected.jpg
 
 ${LINK_LOGIN}          https://github.com/settings/profile
 ${LOGIN_NAME}          id=login_field

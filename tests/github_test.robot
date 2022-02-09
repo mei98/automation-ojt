@@ -17,7 +17,7 @@ Test Change Github Avatar
 
      Run Keyword And Ignore Error    Login With Username And Password    ${USERNAME}    ${PASSWORD} 
         
-     Remove Avatar
+     # Remove Avatar
      Upload Avatar    ${IMAGE_TO_UPLOAD}
 
      ${img_url}=    Get Element Attribute    ${AVATAR_IMG}    src
