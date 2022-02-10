@@ -8,8 +8,8 @@ Resource    ../resources/robot_keywords/w3school_kw.robot
 Variables    ../resources/python_support/custom_validate.py
 
 Suite Setup    Open Browser    &{LINK_LIST}[upload_file]    chrome    
-...    remote_url=https://oauth-meimei.havi-0824a:027e7bf0-4221-4424-ade3-9d3d3b7691ad@ondemand.apac-southeast-1.saucelabs.com:443/wd/hub
-...    desired_capabilities=name:Second Test,platform:Windows 10,browserName:chrome,version:96 
+...    remote_url=${REMOTE_URL}
+...    desired_capabilities= ${DESIRED_CAP}
    
 Test Setup    Run Keyword    Set Browser Implicit Wait    5
        
@@ -31,7 +31,6 @@ Test Upload File
     Input Text    ${id_my_file}    &{FILE_ADDRESS}[fileaddress]
     ${filename}=    Get Element Attribute    ${id_my_file}    value      
     Should Contain    ${filename}    ${EXPECTED_NAME}  
-
 
 Test Iframe
     
