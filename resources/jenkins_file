@@ -1,7 +1,14 @@
 pipeline {
     agent any
-
+    
     stages {
+    
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                checkout([$class: 'GitSCM', branches: [[name: '*/robot_fw']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mei98/automation-ojt']]])
+            }
+        }
         stage('Hello') {
             steps {
                 echo 'Hello World'
