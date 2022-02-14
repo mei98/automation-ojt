@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                git branch: 'robot_fw', url: 'https://github.com/mei98/automation-ojt'
+                bat 'robot C:\\Users\\meimei\\eclipse-workspace\\Automation_Robot\\tests\\github_test.robot'
+            }
+        }
+    }
+}

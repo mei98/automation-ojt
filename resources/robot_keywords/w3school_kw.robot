@@ -16,7 +16,8 @@ ${XPATH_MY_FRAME}    xpath=//iframe[contains(@title, "W3Schools HTML Tutorial")]
 ${XPATH_NEW_TAB}    xpath://input[contains(@value, "Open window in a new tab")]
 ${XPATH_POPOUT}    xpath://input[contains(@value, "Open a new window")]
 ${CLASS_LINK_API}    class=tag-link
-
+${DESIRED_CAP}    name:Robot with SauceLab Test,platform:Windows 10,browserName:chrome,version:96
+${REMOTE_URL}    https://oauth-meimei.havi-0824a:027e7bf0-4221-4424-ade3-9d3d3b7691ad@ondemand.apac-southeast-1.saucelabs.com:443/wd/hub
 @{VAR_LIST}    IT    QA    DEV    BA    FA
 &{VAR_DICT}    name=ngoc    account=ngocttk1
 ${LOGIN_BUTTON}    css:#u_0_2_8G
