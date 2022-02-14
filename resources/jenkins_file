@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                bat 'robot -d C:\\Users\\meimei\\eclipse-workspace\\Automation_Robot\\log --i github .   '
+            }
+        }
+    }
+}
